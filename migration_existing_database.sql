@@ -1,0 +1,7 @@
+-- Run this ONLY on the existing database created from the earlier starter schema.
+-- Back up the D1 database first. Run once.
+ALTER TABLE applications ADD COLUMN answers_json TEXT NOT NULL DEFAULT '{}';
+CREATE TABLE IF NOT EXISTS site_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL DEFAULT '');
+CREATE TABLE IF NOT EXISTS form_questions (id TEXT PRIMARY KEY, label TEXT NOT NULL, help_text TEXT NOT NULL DEFAULT '', placeholder TEXT NOT NULL DEFAULT '', field_type TEXT NOT NULL DEFAULT 'textarea' CHECK(field_type IN ('text','textarea','email','url','select')), required INTEGER NOT NULL DEFAULT 0, options_json TEXT NOT NULL DEFAULT '[]', sort_order INTEGER NOT NULL DEFAULT 0, active INTEGER NOT NULL DEFAULT 1);
+INSERT OR IGNORE INTO site_settings(key,value) VALUES ('eyebrow','THE OFFICIAL REGISTRATION'),('title','2nd MISS MOOHONG'),('subtitle','REGISTRATION PORTAL'),('intro','เลือกทวีปและประเทศที่ยังว่าง ประเทศจะถูกล็อกเมื่อส่งใบสมัครสำเร็จเท่านั้น'),('logo_url',''),('banner_url','');
+INSERT OR IGNORE INTO form_questions(id,label,help_text,placeholder,field_type,required,options_json,sort_order,active) VALUES ('username','Username (ชื่อผู้ใช้ในเกม)','กรอกชื่อผู้ใช้ที่ใช้สมัคร','เช่น @username','text',1,'[]',1,1),('prompt1','Prompt A','ไม่บังคับ','กรอกคำตอบหรือรายละเอียดเพิ่มเติม','textarea',0,'[]',2,1),('prompt2','Prompt B','ไม่บังคับ','กรอกคำตอบหรือรายละเอียดเพิ่มเติม','textarea',0,'[]',3,1);
