@@ -5,7 +5,7 @@ compatibility_date = "2026-10-27"
 [[d1_databases]]
 binding = "DB"
 database_name = "2nd-miss-moohong-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "d97e30fb-0e86-4d3a-9f55-8ae5cf9ff206"
 
 # Optional: add this R2 binding after creating the bucket in Cloudflare.
 # [[r2_buckets]]
